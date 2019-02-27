@@ -11,7 +11,7 @@ class Login extends AdminBaseController {
     }
 
     public function index() {
-        return view();
+        return $this->view->fetch();
     }
 
     public function login() {
