@@ -32,6 +32,7 @@ $dbName = $database['database'];
 $dbUser = $database['username'];
 $dbPwd = $database['password'];
 $dbPrefix = $database['prefix'];
+$dbCharset = $database['charset'];
 $conn = mysqli_connect($dbHost, $dbUser, $dbPwd);
 if (!$conn) {
     exit("连接数据库失败！");
@@ -43,7 +44,7 @@ if ($version < 4.1) {
     exit("数据库版本太低！");
 }
 
-if (!mysqli_query($conn, "CREATE DATABASE IF NOT EXISTS `" . $dbName . "`;")) {
+if (!mysqli_query($conn, "CREATE DATABASE IF NOT EXISTS `" . $dbName . "` CHARACTER SET " . $dbCharset . " ;")) {
     exit("数据库 ' . $dbName . ' 不存在，也没权限创建新的数据库！");
 }
 
