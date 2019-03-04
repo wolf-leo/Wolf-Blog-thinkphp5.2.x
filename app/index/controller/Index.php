@@ -36,22 +36,4 @@ class Index extends BlogBaseController {
         ]);
         return $this->blogTpl();
     }
-
-    public function test() {
-        $filename = "F:\\apps.txt";
-        $file = file_get_contents($filename);
-        $exp = explode(PHP_EOL, $file);
-        foreach ($exp as $key => $value) {
-            $ex = explode(' ', $value);
-            $title = trim($ex[0]);
-            $scheme = trim($ex[1]);
-            $ret[] = [
-                'title' => $title,
-                'scheme' => $scheme
-            ];
-        }
-        $json = json_encode($ret);
-        exit($json);
-    }
-
 }
